@@ -32,6 +32,7 @@ with open(csvpath, newline="") as csvfile:
     print("Total Votes:", len(voter_id))
     print("----------------")
 
+    #Vote counter
     for i in range(len(voter_id)):
 
         if candidate[i] == str("Khan"):
@@ -48,19 +49,21 @@ with open(csvpath, newline="") as csvfile:
     Li_percentage = (Li_vote / len(voter_id)) * 100
     Otooley_percentage = (Otooley_vote / len(voter_id)) * 100
 
-    Winner = [Khan_vote,Correy_vote,Li_vote,Otooley_vote]
+    votes = [Khan_vote, Correy_vote, Li_vote, Otooley_vote]
 
-    #     p_and_l_change.append(p_and_l[i] - p_and_l[i-1])
-    #     average_p_and_l_change = sum(p_and_l_change) / len(p_and_l_change)
-    #     greatest_p_and_l_change = max(p_and_l_change)
-    #     least_p_and_l_change = min(p_and_l_change)
+    #Winner
+    if max(votes) == Khan_vote:
+        winner = str("Khan")
+    elif max(votes) == Correy_vote:
+        winner = str("Correy")
+    elif max(votes) == Li_vote:
+        winner = str("Li")
+    else:
+        winner = str("O'Tooley")
 
-    #     greatest_p_and_l_change_date = date[p_and_l_change.index(greatest_p_and_l_change)]
-    #     least_p_and_l_change_date = date[p_and_l_change.index(least_p_and_l_change)]
-
-    print("Khan:", Khan_percentage, Khan_vote)
-    print("Correy:", Correy_percentage, Correy_vote)
-    print("Li:", Li_percentage, Li_vote)
-    print("O'Tooley:", Otooley_percentage, Otooley_vote)
-    print("----------------")
-    print("Winner:", max(Winner))
+print("Khan: " + str("{0:.2f}".format(Khan_percentage)) + "%" + " (" + str(Khan_vote) + ")")
+print("Correy: " + str("{0:.2f}".format(Correy_percentage)) + "%" + " (" + str(Correy_vote) + ")")
+print("Li: " + str("{0:.2f}".format(Li_percentage)) + "%" + " (" + str(Li_vote) + ")")
+print("O'Tooley: " + str("{0:.2f}".format(Otooley_percentage)) + "%" + " (" + str(Otooley_vote) + ")")
+print("----------------")
+print("Winner: " + winner)
