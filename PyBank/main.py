@@ -19,8 +19,8 @@ with open(csvpath, newline="") as csvfile:
 
     for row in csvreader:
 
-        date.append(row[0])
-        p_and_l.append(int (row[1]))
+        date.append(str(row[0]))
+        p_and_l.append(int(row[1]))
 
     print("Financial Ananlysis")
     print("-------------------")
@@ -37,6 +37,6 @@ with open(csvpath, newline="") as csvfile:
         greatest_p_and_l_change_date = date[p_and_l_change.index(greatest_p_and_l_change)]
         least_p_and_l_change_date = date[p_and_l_change.index(least_p_and_l_change)]
 
-    print("Average Change: $", average_p_and_l_change)
-    print("Greatest Increase in Profits:", str(greatest_p_and_l_change_date), greatest_p_and_l_change)
-    print("Greatest Decrease in Profits:", str(least_p_and_l_change_date), least_p_and_l_change)
+    print("Average Change: $" + str("{0:.2f}".format(average_p_and_l_change)))
+    print("Greatest Increase in Profits: " + str(greatest_p_and_l_change_date) + " ($" + str(greatest_p_and_l_change) + ")")
+    print("Greatest Decrease in Profits: " + str(least_p_and_l_change_date) + " ($" + str(least_p_and_l_change) + ")")
