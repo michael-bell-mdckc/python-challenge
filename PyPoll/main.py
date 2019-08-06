@@ -29,7 +29,7 @@ with open(csvpath, newline="") as csvfile:
 
     print("Election Results")
     print("----------------")
-    print("Total Votes:", len(voter_id))
+    print("Total Votes:" + str(len(voter_id)))
     print("----------------")
 
     #Vote counter
@@ -67,3 +67,28 @@ print("Li: " + str("{0:.2f}".format(Li_percentage)) + "%" + " (" + str(Li_vote) 
 print("O'Tooley: " + str("{0:.2f}".format(Otooley_percentage)) + "%" + " (" + str(Otooley_vote) + ")")
 print("----------------")
 print("Winner: " + winner)
+
+#Print to file
+txtfile = "output.txt"
+
+with open(txtfile, "w") as output_file:
+
+    output_file.write("Election Results")
+    output_file.write("\n")
+    output_file.write("----------------")
+    output_file.write("\n")
+    output_file.write("Total Votes: " + str(len(voter_id)))
+    output_file.write("\n")
+    output_file.write("----------------")
+    output_file.write("\n")
+    output_file.write("Khan: " + str("{0:.2f}".format(Khan_percentage)) + "%" + " (" + str(Khan_vote) + ")")
+    output_file.write("\n")
+    output_file.write("Correy: " + str("{0:.2f}".format(Correy_percentage)) + "%" + " (" + str(Correy_vote) + ")")
+    output_file.write("\n")
+    output_file.write("Li: " + str("{0:.2f}".format(Li_percentage)) + "%" + " (" + str(Li_vote) + ")")
+    output_file.write("\n")
+    output_file.write("O'Tooley: " + str("{0:.2f}".format(Otooley_percentage)) + "%" + " (" + str(Otooley_vote) + ")")
+    output_file.write("\n")
+    output_file.write("----------------")
+    output_file.write("\n")
+    output_file.write("Winner: " + winner)

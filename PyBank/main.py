@@ -24,8 +24,8 @@ with open(csvpath, newline="") as csvfile:
 
     print("Financial Ananlysis")
     print("-------------------")
-    print("Total Months:", len(date))
-    print("Total: $", sum(p_and_l))
+    print("Total Months: " + str(len(date)))
+    print("Total: $" + str(sum(p_and_l)))
 
     for i in range(1,len(p_and_l)):
 
@@ -40,3 +40,22 @@ with open(csvpath, newline="") as csvfile:
     print("Average Change: $" + str("{0:.2f}".format(average_p_and_l_change)))
     print("Greatest Increase in Profits: " + str(greatest_p_and_l_change_date) + " ($" + str(greatest_p_and_l_change) + ")")
     print("Greatest Decrease in Profits: " + str(least_p_and_l_change_date) + " ($" + str(least_p_and_l_change) + ")")
+
+#Print to file
+txtfile = "output.txt"
+
+with open(txtfile, "w") as output_file:
+
+    output_file.write("Financial Ananlysis")
+    output_file.write("\n")
+    output_file.write("-------------------")
+    output_file.write("\n")
+    output_file.write("Total Months: " + str(len(date)))
+    output_file.write("\n")
+    output_file.write("Total: $" + str(sum(p_and_l)))
+    output_file.write("\n")
+    output_file.write("Average Change: $" + str("{0:.2f}".format(average_p_and_l_change)))
+    output_file.write("\n")
+    output_file.write("Greatest Increase in Profits: " + str(greatest_p_and_l_change_date) + " ($" + str(greatest_p_and_l_change) + ")")
+    output_file.write("\n")
+    output_file.write("Greatest Decrease in Profits: " + str(least_p_and_l_change_date) + " ($" + str(least_p_and_l_change) + ")")
